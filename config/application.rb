@@ -26,11 +26,13 @@ module RailsConsole
     # -- all .rb files in that directory are automatically loaded.
 
     # Don't generate system test files.
-    config.generators.system_tests = nil
-          g.orm             :active_record
-      g.template_engine :erb
-      g.test_framework  :test_unit, fixture: false
-      g.stylesheets     false
-      g.javascripts     false
-  end
+      config.generators do |g|
+        g.orm             :active_record
+        g.template_engine :erb
+        g.test_framework  :test_unit, fixture: false
+        g.stylesheets     false
+        g.javascripts     false
+        g.helper          :my_helper
+      end
+    end
 end
